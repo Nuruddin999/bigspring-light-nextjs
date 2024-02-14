@@ -1,12 +1,12 @@
 {
   "site": {
-    "title": "Bigspring Light Nextjs",
+    "title": "Иновационый Центр Экспертиз",
     "base_url": "/",
     "favicon": "/images/favicon.png",
     "logo": "/images/logo.png",
-    "logo_width": "200",
+    "logo_width": "48",
     "logo_height": "48",
-    "logo_text": "Bigspring Light"
+    "logo_text": "ИЦЭ"
   },
 
   "settings": {
@@ -17,20 +17,20 @@
 
   "nav_button": {
     "enable": true,
-    "label": "Get Started",
+    "label": "Начать работу",
     "link": "/contact"
   },
 
   "params": {
     "contact_form_action": "",
     "tag_manager_id": "",
-    "footer_content": "Lorem ipsum dolor sit amet, consectetur elit. Consjat tristique eget amet, tempus eu at cttur.",
-    "copyright": "Designed and Developed By [Themefisher](https://themefisher.com/)"
+    "footer_content": "АНО «ИЦЭ» специализируется на проведении судебных строительно-технических экспертиз",
+    "copyright": ""
   },
 
   "metadata": {
-    "meta_author": "Themefisher",
+    "meta_author": "Иновационый Центр Экспертиз",
     "meta_image": "",
-    "meta_description": "A SAAS template for nextjs"
+    "meta_description": "АНО «ИЦЭ» специализируется на проведении судебных строительно-технических экспертиз"
   }
 }

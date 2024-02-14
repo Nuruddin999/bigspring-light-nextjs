@@ -1,12 +1,15 @@
 ---
-title: "Contact Us"
+title: "Наши контакты"
 layout: "contact"
 draft: false
 info: 
-  title: Why you should contact us!
-  description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit recusandae voluptates doloremque veniam temporibus porro culpa ipsa, nisi soluta minima saepe laboriosam debitis nesciunt.
-  contacts: 
-    - "phone: +88 125 256 452"
-    - "Mail: [info@bigspring.com](mailto:info@bigspring.com)"
-    - "Address: 360 Main rd, Rio, Brazil"
+  title: Мы ждем вас !
+  description: Свяжитесь с нами для проведения экспертизы любой сложности – мы гарантируем объективное и качественное исследование вашего строительного дела. Не откладывайте решение важных юридических вопросов – обращайтесь в АНО «ИЦЭ» прямо сейчас, чтобы получить квалифицированную помощь и консультации.
+  contacts:
+    - ИНН 9704233424
+    - КПП 770401001
+    - ОГРН 1247700036627
+    - "Контактный телефон: +7 (936) 286-85-92"
+    - "Почта: [inovekspert@gmail.com](mailto:inovekspert@gmail.com)"
+    - "Юридический адресс: 119435, г.Москва, ул.Большая Пироговская, д.37-43, к.А, помещ.1/1"
 ---

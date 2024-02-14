@@ -8,10 +8,13 @@ import { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import { getListPage } from "../lib/contentParser";
+import { otherFaqs } from "../content/otherData";
 
-const Home = ({ frontmatter }) => {
+const Home = ({ frontmatter, faq }) => {
   const { banner, feature, services, workflow, call_to_action } = frontmatter;
   const { title } = config.site;
+
+  console.log('faqs next',faq.faqsnext)
 
   return (
     <Base title={title}>
@@ -20,8 +23,8 @@ const Home = ({ frontmatter }) => {
         <div className="container">
           <div className="row text-center">
             <div className="mx-auto lg:col-10">
-              <h1 className="font-primary font-bold">{banner.title}</h1>
-              <p className="mt-4">{markdownify(banner.content)}</p>
+              <h4>АВТОНОМНАЯ НЕКОММЕРЧЕСКАЯ ОРГАНИЗАЦИЯ</h4>
+              <h1 className="font-primary font-bold">Иновационый Центр Экспертиз</h1>
               {banner.button.enable && (
                 <Link
                   className="btn btn-primary mt-4"
@@ -48,9 +51,9 @@ const Home = ({ frontmatter }) => {
       <section className="section bg-theme-light">
         <div className="container">
           <div className="text-center">
-            <h2>{markdownify(feature.title)}</h2>
+            <h2>Преимущества</h2>
           </div>
-          <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-2">
             {feature.features.map((item, i) => (
               <div
                 className="feature-card rounded-xl bg-white p-5 pb-8 text-center"
@@ -60,14 +63,14 @@ const Home = ({ frontmatter }) => {
                   <Image
                     className="mx-auto"
                     src={item.icon}
-                    width={30}
-                    height={30}
+                    width={200}
+                    height={200}
                     alt=""
                   />
                 )}
                 <div className="mt-4">
                   {markdownify(item.name, "h3", "h5")}
-                  <p className="mt-3">{item.content}</p>
+                  <p className="mt-3 text-xl">{item.content}</p>
                 </div>
               </div>
             ))}
@@ -114,7 +117,7 @@ const Home = ({ frontmatter }) => {
                   }`}
                 >
                   <h2 className="font-bold leading-[40px]">{service?.title}</h2>
-                  <p className="mt-4 mb-2">{service?.content}</p>
+                  <p className="mt-4 mb-2 text-xl">{service?.content}</p>
                   {service.button.enable && (
                     <Link
                       href={service?.button.link}
@@ -137,36 +140,72 @@ const Home = ({ frontmatter }) => {
         );
       })}
 
-      {/* workflow */}
-      <section className="section pb-0">
-        <div className="mb-8 text-center">
-          {markdownify(
-            workflow.title,
-            "h2",
-            "mx-auto max-w-[400px] font-bold leading-[44px]"
-          )}
-          {markdownify(workflow.description, "p", "mt-3")}
+      <section className="section">
+        <div className="container">
+          {markdownify(faq.title, "h1", "text-center font-normal")}
+          <div className="section row  -mt-6">
+            {faq.faqs.map((faq, index) => (
+              <div key={index} className="col-12 mt-6 md:col-6">
+                <div className="p-12  shadow">
+                  <div className="faq-head relative">
+                    {markdownify(faq.title, "h4")}
+                  </div>
+                  {markdownify(faq.answer, "p", "faq-body mt-4 text-xl")}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-        <Image
-          src={workflow.image}
-          alt="workflow image"
-          width={1920}
-          height={296}
-        />
       </section>
-
-      {/* Cta */}
-      <Cta cta={call_to_action} />
+      <section className="section bg-theme-primary">
+        <div className="container">
+          {markdownify('Ключевые характеристики экспертов-строителей центра', "h1", "text-center font-normal")}
+          <div className="section row  -mt-6">
+            {otherFaqs.map((faq, index) => (
+              <div key={index} className="col-12 mt-6 md:col-6">
+                <div className="p-12  shadow">
+                  <div className="faq-head relative">
+                    {markdownify(faq.title, "h4")}
+                  </div>
+                  {markdownify(faq.ans, "p", "faq-body mt-4 text-xl")}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section pb-0">
+        <div className="container">
+          <h1 className="text-center font-normal">Ключевые характеристики экспертов-строителей центра</h1>
+          <div className="section row -mt-10 justify-center md:mt-0">
+            {otherFaqs.map((plan, index) => (
+              <div
+                className={"col-12 md:col-4"}
+                key={plan.title}
+              >
+                <div className="card text-center">
+                  {/*<h4>{plan.ans}</h4>*/}
+                  {markdownify(plan.ans, "p", "faq-body mt-4 text-xl")}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </Base>
   );
 };
 
 export const getStaticProps = async () => {
   const homePage = await getListPage("content/_index.md");
+  const faqPage = await getListPage("content/faq.md");
   const { frontmatter } = homePage;
+  const { frontmatter: faq } = faqPage;
+  console.log('faqPage',faq)
   return {
     props: {
       frontmatter,
+      faq
     },
   };
 };

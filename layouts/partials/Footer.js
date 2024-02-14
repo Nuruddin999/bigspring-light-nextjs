@@ -9,6 +9,7 @@ import Link from "next/link";
 const Footer = () => {
   const { copyright, footer_content } = config.params;
   const { footer } = menu;
+  console.log('footer',footer);
   return (
     <footer className="section bg-theme-light pb-0">
       <div className="container">
